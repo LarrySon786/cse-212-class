@@ -1,3 +1,6 @@
+using System.Diagnostics;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 public static class Arrays
 {
     /// <summary>
@@ -8,12 +11,22 @@ public static class Arrays
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Creating Variable for new array.
+        var results = new double[length];
 
-        return []; // replace this return statement with your own
+        // Begin to Iterate through each index of the fixed array to prepare to the new array with correct results.
+        for (int i = 0; i < length; i++)
+        {
+            // Add the resulting final products to our new array that will be returned. 
+            // Also performs math calculation.
+            results[i] = ((i + 1) * number);
+        }
+
+        // Writting out the results to confirm correct.
+        Debug.WriteLine(results);
+
+        // Return completed array.
+        return results;
     }
 
     /// <summary>
@@ -25,9 +38,41 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Establish variables including length of the array, and a new array that will eventually contain the final result.
+        var length = data.Count();
+        var newArray = new List<int>();
+
+        // Split the List so that the larger numbers are in one new array and the smaller numbers in a different array. 
+        // We will eventually put the largerNumbers in the front and smallerNumbers in the back.
+        var largerNumbersArray = data.GetRange(length - amount, amount);
+        var smallerNumberArray = data.GetRange(0, length - amount);
+
+        // Iterate through both new arrays and append the larger Numbers FIRST and then the Smaller numbers SECOND
+        // Iterating through larger array.
+        for (int i = 0; i < largerNumbersArray.Count(); i++)
+        {
+            newArray.Add(largerNumbersArray[i]);
+        };
+
+        // Iterating through smaller array.
+        for (int i = 0; i < smallerNumberArray.Count(); i++)
+        {
+            newArray.Add(smallerNumberArray[i]);
+        }
+
+        // Set the original Array's values to the newArray values thus updating the original array.
+        for (int i = 0; i < length; i++)
+        {
+            data[i] = newArray[i];
+        }
+
+        // Write out the new data file to demonstrate that the Array is updated correctly
+        foreach (int item in data)
+        {
+            Debug.Write(item);
+            Debug.Write(',');
+            Debug.Write(' ');
+        }
+
     }
 }
