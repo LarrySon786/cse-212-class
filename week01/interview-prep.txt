@@ -1,0 +1,54 @@
+
+
+Advantages of Dynamic Arrays
+
+- Dynamic Arrays are incredibly useful because of how easy they are to manipulate.
+- You can expand and add data to a dynamic array as needed in your application.
+- This is a huge advantage over fixed or static arrays which are unable to expand or easily change.
+- With a fixed array you must have a pre-defined amount of space in the array 
+- No more space can be created after the static array was initialized.
+
+
+Disadvantage of using a dynamic array instead of a static array.
+
+- That being said, there are times where using a static array is useful. 
+- If you know the capacity of the array you are working with will not change, static arrays can be used instead of dynamic arrays.
+- Static arrays use much less memory and will have optimal performance compared to dynamic arrays.
+- Another disadvantage of Dynamic arrays happens when these arrays experience overflow. 
+- Overflow happens when the array is expanding its capacity to meet new additions. 
+- This often becomes more demanding performance-wise for the application.
+
+
+
+
+
+
+
+
+
+Strengths of Dynamic Arrays
+
+- Easy to manipulate
+- Expand data  
+- Modify data
+- Static arrays CANNOT CHANGE
+- Fixed array = pre-defined amount of space
+- No more space
+
+
+Disadvantage of using a dynamic array instead of a static array.
+
+- However, somtimes static is useful
+- Known capacity already
+- No need for expanding array
+- Much less memory
+- Optimal Performance
+
+- Another disadvantage: overflow. 
+- Overflow happens when the array is expanding its capacity to meet new additions. 
+- Mdemanding performance-wise.
+
+
+
+
+
