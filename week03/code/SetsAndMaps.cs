@@ -21,8 +21,31 @@ public static class SetsAndMaps
     /// <param name="words">An array of 2-character words (lowercase, no duplicates)</param>
     public static string[] FindPairs(string[] words)
     {
-        // TODO Problem 1 - ADD YOUR CODE HERE
-        return [];
+        var set = new HashSet<string>();
+        var returnList = new List<string>();
+        
+        foreach (string word in words)
+        {
+            // No Duplicate letters
+            if (word[0] == word[1])
+            {
+                continue;
+            }
+
+            // REVERSE the old word
+            string wordReversed = new string(new char[] { word[1], word[0] });
+
+            // Check if word already exists in this set
+            if (set.Contains(wordReversed))
+            {
+                returnList.Add($"{wordReversed} & {word}");
+            }
+            else
+            {
+                set.Add(word);
+            }
+        }
+        return returnList.ToArray();
     }
 
     /// <summary>
@@ -39,11 +62,20 @@ public static class SetsAndMaps
     public static Dictionary<string, int> SummarizeDegrees(string filename)
     {
         var degrees = new Dictionary<string, int>();
+
         foreach (var line in File.ReadLines(filename))
         {
             var fields = line.Split(",");
-            // TODO Problem 2 - ADD YOUR CODE HERE
+            if (degrees.ContainsKey(fields[3]))
+            {
+                degrees[fields[3]] += 1;
+            }
+            else
+            {
+                degrees.Add(fields[3], 1);
+            }
         }
+        Console.WriteLine(degrees);
 
         return degrees;
     }
@@ -66,8 +98,47 @@ public static class SetsAndMaps
     /// </summary>
     public static bool IsAnagram(string word1, string word2)
     {
-        // TODO Problem 3 - ADD YOUR CODE HERE
-        return false;
+        var word = new Dictionary<string, int>();
+        word1 = word1.ToLower();
+        word2 = word2.ToLower();
+
+        foreach (char letter in word1)
+        {
+            string letterString = letter.ToString();
+            if (letterString != " ")
+            {
+                if (!word.ContainsKey(letterString))
+                {
+                    word.Add(letterString, 1);
+                }
+                else
+                {
+                    word[letterString] += 1;
+                }
+                
+            }
+        }
+        foreach (char letter in word2)
+        {
+            string letterString = letter.ToString();
+            if (letterString != " ")
+            {
+                if (word.ContainsKey(letterString))
+                {
+                    word[letterString] -= 1;
+                }
+                else return false;
+            }
+        }
+        foreach (KeyValuePair<string, int> item in word)
+        {
+            if (item.Value < 0 | item.Value > 0)
+                {
+                    return false;
+                }
+        }
+
+        return true;
     }
 
     /// <summary>
@@ -96,11 +167,16 @@ public static class SetsAndMaps
 
         var featureCollection = JsonSerializer.Deserialize<FeatureCollection>(json, options);
 
+        
+
         // TODO Problem 5:
         // 1. Add code in FeatureCollection.cs to describe the JSON using classes and properties 
         // on those classes so that the call to Deserialize above works properly.
         // 2. Add code below to create a string out each place a earthquake has happened today and its magitude.
         // 3. Return an array of these string descriptions.
+        
+
+
         return [];
     }
 }

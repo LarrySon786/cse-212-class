@@ -22,3 +22,8 @@
         return stack.Count == 0;
     }
 }
+// HYPOTHESIS - Function detects pairs of (), {}, []. If pairs, then returns false
+//  If no pairs then returns true.
+
+
+

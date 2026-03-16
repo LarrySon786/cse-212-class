@@ -1,0 +1,70 @@
+What would be the best data structure to model the behavior of the supply basket? 
+Justify your answer and explain how it would be used.
+
+What is the time complexity of adding new seeds to the supply basket?
+What is the time complexity of removing seeds from the supply basket?
+What is the time complexity of checking to see if the supply basket is empty?
+
+The best data structure for this behavior is to use a stack. 
+Stacks allow us to pile up data almost like an array but with 
+major key differences.
+When using a stack, items that were placed most 
+recently into the stack must be taken out 
+FIRST before the older items can be taken out.
+
+
+In the case of this game, the seeds would be put 
+into a data stack. 
+If pumkin seeds are put in first, then strawberry 
+seeds second,
+then you must first pull out strawberry seeds from 
+the stack. You cannot access the pumpkin
+seeds until you have removed the strawberry seeds.
+
+
+The time complexity is a big advantage of using a stack.
+
+The time complexity for adding seeds, removing seeds, 
+and checking if the basket is empty are all O(1)
+
+This is because one of the benefits of using a stack 
+is that they offer an enhanced performance for 
+operations compared to iterating through and array. 
+All of a stack's push, pop, and empty operations are 
+much simpler than
+iterating through an array and therefore have a O(1)
+
+
+OUTLINE
+
+Best data structure --> stack. 
+Pile up data __ array __  
+major key differences.
+recently items --> take out first
+CANNOT ACCES OLD DATA 
+until recent data is taken out
+
+
+In the case of this game, 
+seeds --> data stack
+watermelon seeds --> first
+strawberry --> second
+First pull out strawberry seeds
+You cannot access the pumpkin
+seeds until you have removed the strawberry seeds.
+
+
+The time complexity is a big advantage of using a stack.
+
+The time complexity for adding seeds, removing seeds, 
+and checking if the basket is empty are all O(1)
+
+Best benefits: Performance
+Enhanced performance VS iterating through and array. 
+
+stack's push, pop, and empty operations are more efficient 
+iterating through an array and therefore have a O(1)
+
+
+
+

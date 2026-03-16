@@ -20,11 +20,43 @@
 
         Console.WriteLine($"Number of items in the collection: {data.Length}");
         Console.WriteLine($"Number of duplicates : {CountDuplicates(data)}");
+        Console.WriteLine($"Duplicates : {DuplicateLocation("ABCDEEEFFF")}");
     }
 
     private static int CountDuplicates(int[] data)
     {
-        // Add code here.
-        return 0;
+        var set = data.ToHashSet();
+        var duplicates = data.Length - set.Count;
+        return duplicates;
     }
+
+    private static Dictionary<string, int> DuplicateLocation(string word)
+    {
+        int index = -1;
+        var dictionary = new Dictionary<string, int>();
+        var duplicates = new Dictionary<string, int>();
+        word.Split();
+        foreach (char letter in word)
+        {
+
+            index += 1;
+            if (!dictionary.ContainsKey(letter.ToString()))
+            {
+                dictionary[letter.ToString()] = 1;
+            }
+            else
+            {
+                dictionary[letter.ToString()] += 1;
+            }
+
+            if (dictionary[letter.ToString()] == 2)
+            {
+                duplicates[letter.ToString()] = index;
+            }
+        }
+        return duplicates;
+    }
+
+
+
 }
