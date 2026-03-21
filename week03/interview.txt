@@ -1,0 +1,62 @@
+=====================================================================================================================
+Describe how you would write a function to find the intersection of two sets. 
+Your solution should NOT use the built-in intersection method.
+-------------------------------------------------------------------------------
+
+Your overall approach.
+- Iterate through first sets
+- Use the Contains() function to see if each item in set1 is also in set2
+- For each item that is in both sets, add them to a new resultsSet.
+
+Step-by-step discussion of how the function would behave.
+- The function would return a resultsSet based on two input sets.
+- Using a foreach statement to iterate through set1. 
+- Use a contain() function to determine if that value is in set2
+- If that is the case, then that value will be added to the resultsSet.
+
+The Big O performance of your approach.
+- Since we are iterating through a set in this approach, the Big O performance is "n"
+
+Highlight at least 3 test cases that you would try to make sure your approach would work.
+1. Combine two sets of integers and assert expected results
+2. Combine two sets of strings and assert expected results
+3. Assert a message is displayed if there are NO intersections.
+
+
+
+
+
+=====================================================================================================================
+Describe how you would write a function to find the union of two sets. 
+Your solution should NOT use the built-in union method.
+-------------------------------------------------------------------------------
+Your overall approach.
+- Similar to the intersection function, I would iterate through set1
+- In the case of a union, a set already ignores duplicates.
+- Simply adding the values from both sets to a resultSet would create a union set.
+
+Step-by-step discussion of how the function would behave.
+- Start --> Iterate through set1
+- Add each value to a resultSet
+- Then --> Iterate through set2
+- Add each value to the same resultSet
+
+The Big O performance of your approach.
+- It will have O(n) performance since it must iterate through two separate arrays and their size depends on input.
+
+Highlight at least 3 test cases that you would try to make sure your approach would work.
+- Assert that each value in set1 is in the returned resultSet
+- Assert that each value in set2 is in the returned resultSet
+- Assert that the function works for integer sets and strings.
+
+
+
+
+
+
+
+
+
+
+
+

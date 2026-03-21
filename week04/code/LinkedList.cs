@@ -32,7 +32,18 @@ public class LinkedList : IEnumerable<int>
     /// </summary>
     public void InsertTail(int value)
     {
-        // TODO Problem 1
+        Node newNode = new(value);
+        if (_tail == null)
+        {
+            _head = newNode;
+            _tail = newNode;
+        }
+        else
+        {
+            newNode.Prev = _tail;
+            _tail.Next = newNode;
+            _tail = newNode;
+        }
     }
 
 
@@ -64,7 +75,18 @@ public class LinkedList : IEnumerable<int>
     /// </summary>
     public void RemoveTail()
     {
-        // TODO Problem 2
+        if (_head == _tail)
+        {
+            _head = null;
+            _tail = null;
+        }
+        else if (_tail != null) {
+            _tail.Prev!.Next = null;
+            _tail = _tail.Prev;
+
+        }
+        
+
     }
 
     /// <summary>
@@ -108,7 +130,43 @@ public class LinkedList : IEnumerable<int>
     /// </summary>
     public void Remove(int value)
     {
-        // TODO Problem 3
+        if (_head != null)
+        {
+            Node current = _head;
+            Node searchValue = new(value);
+            while (current.Data != searchValue.Data)
+            {
+                if (current == null)
+                {
+                    Console.WriteLine($"Value {value} was not in the Node List.");
+                    break;
+                }
+                current = current.Next!;
+                if (current == null) break;
+            }
+            if (current != null)
+            {
+                if (current == _head)
+                {
+                    RemoveHead();
+                }
+                else if (current == _tail)
+                {
+                    RemoveTail();
+                }
+                else
+                {
+                    current.Next.Prev = current.Prev;
+                    current.Prev.Next = current.Next;
+                }
+                
+            }
+        }
+        else
+        {
+            Console.WriteLine("There is nothing in this node list.");
+            return;
+        }
     }
 
     /// <summary>
@@ -116,7 +174,24 @@ public class LinkedList : IEnumerable<int>
     /// </summary>
     public void Replace(int oldValue, int newValue)
     {
-        // TODO Problem 4
+        if (_head != null)
+        {
+            Node current = _head;
+            Node searchValue = new(oldValue);
+            
+            while (current != null)
+            {
+                if (current.Data == oldValue)
+                {
+                    current.Data = newValue;
+                }
+                current = current.Next!;
+            }
+        }
+
+
+
+
     }
 
     /// <summary>
@@ -146,8 +221,13 @@ public class LinkedList : IEnumerable<int>
     /// </summary>
     public IEnumerable Reverse()
     {
-        // TODO Problem 5
-        yield return 0; // replace this line with the correct yield return statement(s)
+        Node current = _tail;
+        while (current != null)
+        {
+            yield return current.Data;
+            current = current.Prev;
+        }
+        // yield return 0; // replace this line with the correct yield return statement(s)
     }
 
     public override string ToString()
