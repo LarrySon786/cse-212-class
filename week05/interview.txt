@@ -1,0 +1,46 @@
+WEEK 5
+What are two potential pitfalls of using recursion? 
+How could you overcome these challenges 
+(either by using an alternative technique or by doing something to help the recursion)?
+
+
+
+PITFALL 1
+
+Recursion should not be used for everything 
+bad --> performance  
+
+
+OVERCOME 1
+
+Simple for loop
+substitute --> recursion is not needed
+simpler --> Easier
+
+
+PITFALL 2
+
+Recursion --> simple answer for complex task
+Complex answer for a simple task
+Innapropriate for some tasks.
+- Excesive
+- Can use other tools
+
+Largely, recursive is good for making a complex 
+task simple, but not always applicable for simple tasks.
+
+
+OVERCOME 2
+
+Overcome --> use two rules of recursive functions
+
+1. Problem can be made smaller and simpler 
+- Each recursive call
+- otherwise it will run forever
+
+2. Having a base case that ends the function 
+- prevents from running forever
+
+
+
+

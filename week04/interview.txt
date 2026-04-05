@@ -1,15 +1,77 @@
+WEEK 4
+
+Explain how you would use a 
+linked list internally to implement a Stack. 
+Make sure to explain the way you would use the 
+linked list AND the time complexity associated 
+with each of the following operations:
+- Push
+- Pop
+- GetTop
+- IsEmpty
 
 
-Explain how you would use a linked list internally to implement a Stack. Make sure to explain the way you would use the linked list AND the time complexity associated with each of the following operations:
+To use a linked list with a stack, you only need to take
+off the most recently added node. In this case, the tail.
+
 Push
+- Big O (1) since only adding to tail
+- Reassign the tail to be the new node
+- Update the previous Tail's .Next pointer to be the new tail
+- update the new node's Prev pointer to be the old tail.
+
 Pop
-GetTop
-IsEmpty
-Explain how you would use a linked list internally to implement a Queue. Make sure to explain the way you would use the linked list AND the time complexity associated with each of the following operations:
-Enqueue
-Dequeue
-Size
-IsEmpty
+- Big O (1)
+- Similar to Push, but you will do the opposit.
+- Remove current tail. Assign current Tail's 
+previous node to be new tail
+- remove new tail's .Next pointer so it does not point to old tail
+
+Get Top - Peek()
+- Big O(1)
+- Simply return the value of the tail
+
+IsEmpty - 
+- Big O (1)
+- Simply check if tail exists.
 
 
+
+
+QUEUES
+
+Explain how you would use a linked list internally to 
+implement a Queue. Make sure to explain the way you would 
+use the linked list AND the time complexity associated with 
+each of the following operations:
+- Enqueue
+- Dequeue
+- Size
+- IsEmpty
+
+A queue being implimented with a linked list is very efficient
+with Big O complexity being O(1) for both enqueuing and dequiging
+
+Impliment - Enqueue
+- identify the tail (if no tail, create the node
+as header and tail)
+- update the linked list so the new tail is the new node.
+- update the old tail to have its .next point to the new tail.
+
+Impliment - Dequeue
+- identical to enqueue, except we are remocing the header
+- Assign new header to the second item in queue.
+- Remove the new header's .Prev pointer
+
+
+Impliment - Size
+- This is Big O (n) iterates list
+- iterate through linked list until null value is found
+***Reduce performance by tracking in variable
+
+
+Impliment - IsEmpty
+- Big O (1) - checks one value to see if empty
+- Simply write a function to return true if empty by checking 
+header / tail value.
 

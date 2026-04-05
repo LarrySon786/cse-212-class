@@ -11,7 +11,9 @@ public static class Trees
     /// </summary>
     public static BinarySearchTree CreateTreeFromSortedList(int[] sortedNumbers)
     {
+
         var bst = new BinarySearchTree(); // Create an empty BST to start with 
+        if (sortedNumbers.Length == 0) return bst;
         InsertMiddle(sortedNumbers, 0, sortedNumbers.Length - 1, bst);
         return bst;
     }
@@ -49,5 +51,25 @@ public static class Trees
     private static void InsertMiddle(int[] sortedNumbers, int first, int last, BinarySearchTree bst)
     {
         // TODO Start Problem 5
+
+        // Find the middle index of each recursive call
+        decimal middleIndexNotRounded = (first + last) / 2;
+        int middleIndex = (int)Math.Floor(middleIndexNotRounded);
+        bst.Insert(sortedNumbers[middleIndex]);
+
+        int remainingNumbers = last - first;
+        if (remainingNumbers <= 0) return;
+        
+
+        // Call recursivly to insert numbers lower than current middleIndex
+        InsertMiddle(sortedNumbers, first, middleIndex - 1, bst);
+        
+        // Call recursively to insert numbers larger than current middleIndex
+        InsertMiddle(sortedNumbers, middleIndex + 1, last, bst);
+        
+        
+
+
+
     }
 }
